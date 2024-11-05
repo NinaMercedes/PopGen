@@ -4,9 +4,27 @@ Let's start by making a repository containing all of the code, packages and soft
 ```
 conda create -n pop_gen
 conda activate pop_gen
+
 ## Lot's of installations...
 install fastq2matrix
+conda install python=3.7 bwa samtools bcftools parallel datamash gatk4=4.1.4.1 delly tqdm trimmomatic minimap2 biopython bedtools r-ggplot2 iqtree plink
+cd /path/to/fastq2matrix
+git pull
+python setup.py install
 
+
+conda install r-BiocManager r-Remotes r-knitr r-lme4 r-mitml r-nloptr r-mice r-mice r-logistf
+conda install cmake
+
+## MOI in R
+install.packages("optparse")
+install.packages("readr")
+install.packages("dplyr")
+BiocManager::install("SeqVarTools")
+BiocManager::install("SeqArray", force=TRUE)
+BiocManager::install("bahlolab/moimix") # ran with no updates, quite problematic to install
+
+```
 
 ```
 conda activate pop_gen
