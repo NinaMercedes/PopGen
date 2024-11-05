@@ -8,3 +8,10 @@ conda activate pop_gen
 
 
 ```
+
+
+
+Going to use fastq2 matrix to get matrix and also do maf filtering first....
+
+
+DR haploytpes etcc
