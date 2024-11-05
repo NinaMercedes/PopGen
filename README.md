@@ -17,12 +17,12 @@ conda install r-BiocManager r-Remotes r-knitr r-lme4 r-mitml r-nloptr r-mice r-m
 conda install cmake
 
 ## MOI in R
-install.packages("optparse")
-install.packages("readr")
-install.packages("dplyr")
 BiocManager::install("SeqVarTools")
 BiocManager::install("SeqArray", force=TRUE)
 BiocManager::install("bahlolab/moimix") # ran with no updates, quite problematic to install
+install.packages("optparse")
+install.packages("readr")
+install.packages("dplyr")
 
 ```
 
