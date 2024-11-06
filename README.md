@@ -29,6 +29,13 @@ conda update bcftools
 
 ## install admixture
 conda install bioconda::admixture bioconda::plink2
+
+
+## selection
+conda install r-base r-data.table r-stringr r-ggplot2 r-ggrepel r-tidyr --channel conda-forge
+## open R
+install.packages("rehh")
+
 ```
 
 ```
