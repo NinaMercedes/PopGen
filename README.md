@@ -24,6 +24,9 @@ install.packages("optparse")
 install.packages("readr")
 install.packages("dplyr")
 
+### update bcftools due to dependency clash
+conda update bcftools
+
 ```
 
 ```
@@ -31,18 +34,18 @@ conda activate pop_gen
 
 python "/mnt/storage13/nbillows/Pop_Gen/master/prep_files.py" --coding_regions "/mnt/storage13/nbillows/Pf_09_24/Pf3D7_v3/Pf3D7_R.coding.regions.bed" --prefix "dummy_data.2024_10_29.filt.bi.GT.miss0.4.vqslod.filt.snps" --path "/mnt/storage13/nbillows/Pop_Gen/" --metadata "dummy.tsv" --analysis "country_test" --wgs_id "wgs_id" --population "Country" --maf 0.001 --threads 8
 
-parser.add_argument('--metadata',type=str, help='metadata tsv file',required=True)
-parser.add_argument('--suffix',type=str, help='analysis name',required=True)
-parser.add_argument('--wgs_id',type=str, help='name of column with wgs id',required=True)
-parser.add_argument('--suffix',type=str, help='analysis name',required=True)
-parser.add_argument('--population',type=str, help='column name containing populations of interest',required=True)
-parser.add_argument('--maf',type=float,default=0.001, help='Minor allele freq cutoff', required=True)
-parser.add_argument('--threads',default=4, type=int, help='Number of threads for parallel operations', required=True)
+python "/mnt/storage13/nbillows/Pop_Gen/master/PopGen.py" MOI --path "/mnt/storage13/nbillows/Pop_Gen/" --vcf "/mnt/storage13/nbillows/Pf_09_24/dummy/dummy_data.2024_10_29.filt.bi.GT.miss0.4.vqslod.filt.snps_coding_sorted.pop_maf_filt_0.001.vcf.gz" --metadata "dummy.tsv" --wgs_id "wgs_id" --analysis "Nov24" --population "Country" --parallel 5
+
+
+
 
 
 parser.set_defaults(func=main)
 ```
-"/mnt/storage13/nbillows/Pop_Gen/"
+"/mnt/storage13/nbillows/Pop_Gen/"  --path  --vcf VCF --metadata METADATA --wgs_id
+                 WGS_ID --analysis ANALYSIS --population POPULATION --maf MAF
+                 --threads THREADS
+
 Going to use fastq2 matrix to get matrix and also do maf filtering first....
 
 
