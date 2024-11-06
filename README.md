@@ -24,9 +24,11 @@ install.packages("optparse")
 install.packages("readr")
 install.packages("dplyr")
 
-### update bcftools due to dependency clash
+## update bcftools due to dependency clash
 conda update bcftools
 
+## install admixture
+conda install bioconda::admixture
 ```
 
 ```
