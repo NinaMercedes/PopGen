@@ -61,7 +61,7 @@ sed -ie 's/PvP01_//g; s/_v1//g; s/^0//g; s/API/15/g; s/MIT/16/g' <prefix>.bim
 
 
 
-python "/mnt/storage13/nbillows/Pop_Gen/master/PopGen.py" SELECTION --path "/mnt/storage13/nbillows/Pop_Gen/" --binary_matrix "/mnt/storage13/nbillows/Pf_09_24/dummy/dummy_data.2024_10_29.filt.bi.GT.miss0.4.vqslod.filt.snps_coding_sorted.pop_maf_filt_0.001.mat.bin" --analysis "check"  --parallel 5 --metadata "dummy.tsv" --annotation "/mnt/storage13/nbillows/Pf_09_24/dummy/annotations_final.tsv" --product "/mnt/storage13/nbillows/Pf_09_24/Pf3D7_v3/pf_genome_product_v3.tsv" --wgs_id "wgs_id" --population "Country"
+python "/mnt/storage13/nbillows/Pop_Gen/master/PopGen.py" SELECTION --path "/mnt/storage13/nbillows/Pop_Gen/" --binary_matrix "/mnt/storage13/nbillows/Pf_09_24/dummy/dummy_data.2024_10_29.filt.bi.GT.miss0.4.vqslod.filt.snps_coding_sorted.pop_maf_filt_0.001.mat.bin" --analysis "check"  --parallel 5 --metadata "dummy.tsv" --annotation "/mnt/storage13/nbillows/Pf_09_24/dummy/annotations_final.tsv" --product "/mnt/storage13/nbillows/Pf_09_24/Pf3D7_v3/pf_genome_product_v3.tsv" --wgs_id "wgs_id" --population "Country" 
 
 
 
