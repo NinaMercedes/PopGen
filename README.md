@@ -28,7 +28,7 @@ install.packages("dplyr")
 conda update bcftools
 
 ## install admixture
-conda install bioconda::admixture
+conda install bioconda::admixture bioconda::plink2
 ```
 
 ```
@@ -39,7 +39,7 @@ python "/mnt/storage13/nbillows/Pop_Gen/master/prep_files.py" --coding_regions "
 python "/mnt/storage13/nbillows/Pop_Gen/master/PopGen.py" MOI --path "/mnt/storage13/nbillows/Pop_Gen/" --vcf "/mnt/storage13/nbillows/Pf_09_24/dummy/dummy_data.2024_10_29.filt.bi.GT.miss0.4.vqslod.filt.snps_coding_sorted.pop_maf_filt_0.001.vcf.gz" --metadata "dummy.tsv" --wgs_id "wgs_id" --analysis "check" --population "Country" --parallel 5
 
 
-
+python "/mnt/storage13/nbillows/Pop_Gen/master/PopGen.py" ADMIXTURE --path "/mnt/storage13/nbillows/Pop_Gen/" --vcf "/mnt/storage13/nbillows/Pf_09_24/dummy/dummy_data.2024_10_29.filt.bi.GT.miss0.4.vqslod.filt.snps_coding_sorted.pop_maf_filt_0.001.vcf.gz" --analysis "check" --species "P_falciparum" --parallel 5
 
 
 
