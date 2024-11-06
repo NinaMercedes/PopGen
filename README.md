@@ -41,7 +41,7 @@ install.packages("rehh")
 ```
 conda activate pop_gen
 
-python "/mnt/storage13/nbillows/Pop_Gen/master/prep_files.py" --coding_regions "/mnt/storage13/nbillows/Pf_09_24/Pf3D7_v3/Pf3D7_R.coding.regions.bed" --prefix "dummy_data.2024_10_29.filt.bi.GT.miss0.4.vqslod.filt.snps" --path "/mnt/storage13/nbillows/Pop_Gen/" --metadata "dummy.tsv" --analysis "country_test" --wgs_id "wgs_id" --population "Country" --maf 0.001 --threads 8
+python "/mnt/storage13/nbillows/Pop_Gen/master/prep_files.py" --coding_regions "/mnt/storage13/nbillows/Pf_09_24/Pf3D7_v3/Pf3D7_R.coding.regions.bed" --prefix "dummy_data.2024_10_29.filt.csq.bi.GT.miss0.4.vqslod.filt.snps" --path "/mnt/storage13/nbillows/Pop_Gen/" --metadata "dummy.tsv" --analysis "country_test" --wgs_id "wgs_id" --population "Country" --maf 0.001 --threads 8
 
 python "/mnt/storage13/nbillows/Pop_Gen/master/PopGen.py" MOI --path "/mnt/storage13/nbillows/Pop_Gen/" --vcf "/mnt/storage13/nbillows/Pf_09_24/dummy/dummy_data.2024_10_29.filt.bi.GT.miss0.4.vqslod.filt.snps_coding_sorted.pop_maf_filt_0.001.vcf.gz" --metadata "dummy.tsv" --wgs_id "wgs_id" --analysis "check" --population "Country" --parallel 5
 
@@ -54,6 +54,11 @@ sed -ie 's/PvP01_//g; s/_v1//g; s/^0//g; s/API/15/g; s/MIT/16/g' <prefix>.bim
 
 
 
+python "/mnt/storage13/nbillows/Pop_Gen/master/PopGen.py" SELECTION --path "/mnt/storage13/nbillows/Pop_Gen/" --binary_matrix "/mnt/storage13/nbillows/Pf_09_24/dummy/dummy_data.2024_10_29.filt.bi.GT.miss0.4.vqslod.filt.snps_coding_sorted.pop_maf_filt_0.001.mat.bin" --analysis "check"  --parallel 5 --metadata "dummy.tsv" --annotation --product
+
+
+
+
 parser.set_defaults(func=main)
 ```
 "/mnt/storage13/nbillows/Pop_Gen/"  --path  --vcf VCF --metadata METADATA --wgs_id
@@ -61,6 +66,27 @@ parser.set_defaults(func=main)
                  --threads THREADS
 
 Going to use fastq2 matrix to get matrix and also do maf filtering first....
+
+
+
+
+
+parser_sub = subparsers.add_parser('SELECTION', help='Estimate Fws for MOI', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+parser_sub.add_argument('--path',type=str, help='path to PopGen script directory',required=True)
+parser_sub.add_argument('--prior',type=str, default='prior', help='if the pipeline has been run previously ie is there fws metadata file',required=True)
+parser_sub.add_argument('--metadata',type=str, help='metadata tsv file',required=True)
+parser_sub.add_argument('--wgs_id',type=str, help='name of column with wgs id',required=True)
+parser_sub.add_argument('--analysis',type=str, help='analysis name, different from prep files arg',required=True)
+parser_sub.add_argument('--population',type=str, help='column name containing populations of interest',required=True)
+parser_sub.add_argument('--parallel',default=5, type=int, help='Number of threads for parallel operations', required=True)
+parser_sub.add_argument('--rem_chr', type=str, default='Pf3D7_API_v3,Pf_M76611', help='chr to remove', required=True)
+parser_sub.add_argument('--annotation',type=str, help='path to annotation file', required=True)
+parser_sub.add_argument('--product',type=str, help='path to product file', required=True)
+parser_sub.add_argument('--fws_th',type=int, default=5, help='fws threshold', required=True)
+parser_sub.add_argument('--ihs_th',type=int, default=4 help='fws threshold', required=True)
+parser_sub.add_argument('--rsb_th',type=int, default=5, help='fws threshold', required=True)
+parser_sub.add_argument('--xpehh_th',type=int, default=5, help='fws threshold', required=True)
+parser_sub.add_argument('--binary_matrix',type=str, help='binary matrix to input', required=True)
 
 
 DR haploytpes etcc
