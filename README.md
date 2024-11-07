@@ -13,7 +13,7 @@ git pull
 python setup.py install
 
 
-conda install r-BiocManager r-Remotes r-knitr r-lme4 r-mitml r-nloptr r-mice r-mice r-logistf
+conda install r-BiocManager r-Remotes r-knitr r-lme4 r-mitml r-nloptr r-mice r-mice r-logistf r-devtools
 conda install cmake
 
 ## MOI in R
@@ -43,6 +43,8 @@ cd ~/PopGen # or your path
 git clone https://github.com/glipsnort/hmmIBD.git
 cc -o hmmIBD -O3 -Wall hmmIBD.c -lm
 
+
+## tess3r
 ```
 
 ```
