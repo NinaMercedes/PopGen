@@ -45,6 +45,8 @@ cc -o hmmIBD -O3 -Wall hmmIBD.c -lm
 
 
 ## tess3r
+# Open R
+devtools::install_github("bcm-uga/TESS3_encho_sen")
 ```
 
 ```
