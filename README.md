@@ -1,7 +1,15 @@
 # PopGen :boom:
 This repository contains a master script/ code for performing **Population Genetics Analysis** e.g. for *Plasmodium falciparum*!
 Let's start by making a repository containing all of the code, packages and software we will need for the analysis...
+
+
 ```
+conda create -n desc_stat
+conda activate desc_stat
+conda install python=3.8 scikit-allel zarr r-base
+
+
+
 conda create -n pop_gen
 conda activate pop_gen
 
@@ -13,7 +21,7 @@ git pull
 python setup.py install
 
 
-conda install r-BiocManager r-Remotes r-knitr r-lme4 r-mitml r-nloptr r-mice r-mice r-logistf r-devtools
+conda install r-base r-BiocManager r-Remotes r-knitr r-lme4 r-mitml r-nloptr r-mice r-mice r-logistf r-devtools
 conda install cmake
 
 ## MOI in R
