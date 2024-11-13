@@ -6,7 +6,7 @@ Let's start by making a repository containing all of the code, packages and soft
 ```
 conda create -n pop_stat
 conda activate pop_stat
-conda install python=3.8 scikit-allel zarr r-base 
+conda install python=3.8 scikit-allel zarr r-base matplotlib seaborn
 
 
 
