@@ -4,9 +4,9 @@ Let's start by making a repository containing all of the code, packages and soft
 
 
 ```
-conda create -n desc_stat
-conda activate desc_stat
-conda install python=3.8 scikit-allel zarr r-base
+conda create -n pop_stat
+conda activate pop_stat
+conda install python=3.8 scikit-allel zarr r-base 
 
 
 
