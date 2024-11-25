@@ -83,10 +83,12 @@ python "/mnt/storage13/nbillows/Pop_Gen/master/PopGen.py" IBD --path "/mnt/stora
 
 python "/mnt/storage13/nbillows/Pop_Gen/master/PopGen.py" TESS3R --path "/mnt/storage13/nbillows/Pop_Gen/" --binary_matrix "/mnt/storage13/nbillows/Pf_09_24/dummy/dummy_data.2024_10_29.filt.bi.GT.miss0.4.vqslod.filt.snps_coding_sorted.pop_maf_filt_0.001.mat.bin" --metadata_csv "dummy_meta.csv" --date 2024_11_06 --analysis check
 
+conda deactivate
+
+conda activate pop_stat
+python "/mnt/storage13/nbillows/Pop_Gen/master/PopStat.py" --path "/mnt/storage13/nbillows/Pop_Gen/" --vcf "/mnt/storage13/nbillows/Pf_09_24/Pfalciparum_09_24_v2/analysis_09_24_v2/Pf_dataset_Oct24_filt.csq.bi.GT.miss0.4.vqslod.filt.snps.vcf.gz" --vcf_coding "/mnt/storage13/nbillows/Pf_09_24/Pfalciparum_09_24_v2/analysis_09_24_v2/Pf_dataset_Oct24_filt.csq.bi.GT.miss0.4.vqslod.filt.snps_codingR.vcf.gz" --comparison both --population Region --make_zarr True --metadata "/mnt/storage13/nbillows/Pf_09_24/Pfalciparum_09_24_v2/analysis_09_24_v2/Pf_Nov24_metadata_complete.csv" --do_pca True --prefix Pf_Nov24 --date 25_11_24
 
 
-
-parser.set_defaults(func=main)
 ```
 "/mnt/storage13/nbillows/Pop_Gen/"  --path  --vcf VCF --metadata METADATA --wgs_id
                  WGS_ID --analysis ANALYSIS --population POPULATION --maf MAF
