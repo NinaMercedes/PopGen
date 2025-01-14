@@ -71,51 +71,30 @@ python "/mnt/storage13/nbillows/Pop_Gen/master/PopGen.py" ADMIXTURE --path "/mnt
 plink --vcf <vcf_file> --set-missing-var-ids @:# --keep-allele-order --const-fid --allow-extra-chr --make-bed --out <prefix>
 sed -ie 's/PvP01_//g; s/_v1//g; s/^0//g; s/API/15/g; s/MIT/16/g' <prefix>.bim
 
+## Run ALL Steps PopGen
+```
 
 python "/mnt/storage13/nbillows/Pop_Gen/master/PopGen.py" ALL --path "/mnt/storage13/nbillows/Pop_Gen/" --binary_matrix "/mnt/storage13/nbillows/Pf_09_24/dummy/dummy_data.2024_10_29.filt.bi.GT.miss0.4.vqslod.filt.snps_coding_sorted.pop_maf_filt_0.001.mat.bin" --analysis "checking_all"  --parallel 5 --metadata "dummy.tsv" --annotation "/mnt/storage13/nbillows/Pf_09_24/dummy/annotations_final.tsv" --product "/mnt/storage13/nbillows/Pf_09_24/Pf3D7_v3/pf_genome_product_v3.tsv" --wgs_id "wgs_id" --population "Country" --date 2024_11_07 --comparison paired --ref_index "/mnt/storage13/nbillows/Pf_09_24/Pf3D7_v3/Pfalciparum.genome.fasta.fai" --species P_falciparum --vcf "/mnt/storage13/nbillows/Pf_09_24/dummy/dummy_data.2024_10_29.filt.bi.GT.miss0.4.vqslod.filt.snps_coding_sorted.pop_maf_filt_0.001.vcf.gz"
+```
 
-
-python "/mnt/storage13/nbillows/Pop_Gen/master/PopGen.py" SELECTION --path "/mnt/storage13/nbillows/Pop_Gen/" --binary_matrix "/mnt/storage13/nbillows/Pf_09_24/dummy/dummy_data.2024_10_29.filt.bi.GT.miss0.4.vqslod.filt.snps_coding_sorted.pop_maf_filt_0.001.mat.bin" --analysis "check"  --parallel 5 --metadata "dummy.tsv" --annotation "/mnt/storage13/nbillows/Pf_09_24/dummy/annotations_final.tsv" --product "/mnt/storage13/nbillows/Pf_09_24/Pf3D7_v3/pf_genome_product_v3.tsv" --wgs_id "wgs_id" --population "Country" --date 2024_11_06
-
+## Just Selection
+```
 python "/mnt/storage13/nbillows/Pop_Gen/master/PopGen.py" SELECTION --path "/mnt/storage13/nbillows/Pop_Gen/" --binary_matrix "/mnt/storage13/nbillows/Pf_09_24/dummy/dummy_data.2024_10_29.filt.bi.GT.miss0.4.vqslod.filt.snps_coding_sorted.pop_maf_filt_0.001.mat.bin" --analysis "check"  --parallel 5 --metadata "dummy.tsv" --annotation "/mnt/storage13/nbillows/Pf_09_24/dummy/annotations_final.tsv" --product "/mnt/storage13/nbillows/Pf_09_24/Pf3D7_v3/pf_genome_product_v3.tsv" --wgs_id "wgs_id" --population "Country" --date 2024_11_06 --comparison paired
-
+```
+## Just IBD
+```
 python "/mnt/storage13/nbillows/Pop_Gen/master/PopGen.py" IBD --path "/mnt/storage13/nbillows/Pop_Gen/" --binary_matrix "/mnt/storage13/nbillows/Pf_09_24/dummy/dummy_data.2024_10_29.filt.bi.GT.miss0.4.vqslod.filt.snps_coding_sorted.pop_maf_filt_0.001.mat.bin" --analysis "check"  --parallel 5 --metadata "dummy.tsv" --product "/mnt/storage13/nbillows/Pf_09_24/Pf3D7_v3/pf_genome_product_v3.tsv" --wgs_id "wgs_id" --population "Country" --ref_index "/mnt/storage13/nbillows/Pf_09_24/Pf3D7_v3/Pfalciparum.genome.fasta.fai" --date 2024_11_06 --comparison paired
-
+```
+## Just tess3r
+```
 python "/mnt/storage13/nbillows/Pop_Gen/master/PopGen.py" TESS3R --path "/mnt/storage13/nbillows/Pop_Gen/" --binary_matrix "/mnt/storage13/nbillows/Pf_09_24/dummy/dummy_data.2024_10_29.filt.bi.GT.miss0.4.vqslod.filt.snps_coding_sorted.pop_maf_filt_0.001.mat.bin" --metadata_csv "dummy_meta.csv" --date 2024_11_06 --analysis check
+```
 
-conda deactivate
-
+## Population Statistics Analysis
+``
 conda activate pop_stat
-python "/mnt/storage13/nbillows/Pop_Gen/master/PopStat.py" --path "/mnt/storage13/nbillows/Pop_Gen/" --vcf "/mnt/storage13/nbillows/Pf_09_24/Pfalciparum_09_24_v2/analysis_09_24_v2/Pf_dataset_Oct24_filt.csq.bi.GT.miss0.4.vqslod.filt.snps.vcf.gz" --vcf_coding "/mnt/storage13/nbillows/Pf_09_24/Pfalciparum_09_24_v2/analysis_09_24_v2/Pf_dataset_Oct24_filt.csq.bi.GT.miss0.4.vqslod.filt.snps_codingR.vcf.gz" --comparison both --population Region --make_zarr True --metadata "/mnt/storage13/nbillows/Pf_09_24/Pfalciparum_09_24_v2/analysis_09_24_v2/Pf_Nov24_metadata_complete.csv" --do_pca True --prefix Pf_Nov24 --date 25_11_24
-
+python "/mnt/storage13/nbillows/Pop_Gen/master/PopStat.py" --path "/mnt/storage13/nbillows/Pop_Gen/" --vcf "/m
+nt/storage13/nbillows/Pf_09_24/Pfalciparum_09_24_v2/analysis_09_24_v2/Pf_dataset_Oct24_filt.csq.bi.GT.miss0.4.vqslod.filt.snps.vcf.gz" --vcf_coding "/mnt/storage13/nbillows/Pf_09_24/Pfalciparum_09_24_v2/analysis_09_24_v2/Pf_dataset_Oct24_filt.csq.bi.GT.miss0.4.vqslod.filt.snps_codingR.vcf.gz" --comparison both --population Region --make_zarr True --metadata "/mnt/storage13/nbillows/Pf_09_24/Pfalciparum_09_24_v2/analysis_09_24_v2/Pf_Nov24_metadata_complete.csv" --do_pca True --prefix Pf_Nov24 --date 25_11_24
 
 ```
-"/mnt/storage13/nbillows/Pop_Gen/"  --path  --vcf VCF --metadata METADATA --wgs_id
-                 WGS_ID --analysis ANALYSIS --population POPULATION --maf MAF
-                 --threads THREADS
 
-Going to use fastq2 matrix to get matrix and also do maf filtering first....
-
-
-
-
-
-parser_sub = subparsers.add_parser('SELECTION', help='Estimate Fws for MOI', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-parser_sub.add_argument('--path',type=str, help='path to PopGen script directory',required=True)
-parser_sub.add_argument('--prior',type=str, default='prior', help='if the pipeline has been run previously ie is there fws metadata file',required=True)
-parser_sub.add_argument('--metadata',type=str, help='metadata tsv file',required=True)
-parser_sub.add_argument('--wgs_id',type=str, help='name of column with wgs id',required=True)
-parser_sub.add_argument('--analysis',type=str, help='analysis name, different from prep files arg',required=True)
-parser_sub.add_argument('--population',type=str, help='column name containing populations of interest',required=True)
-parser_sub.add_argument('--parallel',default=5, type=int, help='Number of threads for parallel operations', required=True)
-parser_sub.add_argument('--rem_chr', type=str, default='Pf3D7_API_v3,Pf_M76611', help='chr to remove', required=True)
-parser_sub.add_argument('--annotation',type=str, help='path to annotation file', required=True)
-parser_sub.add_argument('--product',type=str, help='path to product file', required=True)
-parser_sub.add_argument('--fws_th',type=int, default=5, help='fws threshold', required=True)
-parser_sub.add_argument('--ihs_th',type=int, default=4 help='fws threshold', required=True)
-parser_sub.add_argument('--rsb_th',type=int, default=5, help='fws threshold', required=True)
-parser_sub.add_argument('--xpehh_th',type=int, default=5, help='fws threshold', required=True)
-parser_sub.add_argument('--binary_matrix',type=str, help='binary matrix to input', required=True)
-
-
-DR haploytpes etcc
