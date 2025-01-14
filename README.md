@@ -56,7 +56,7 @@ cc -o hmmIBD -O3 -Wall hmmIBD.c -lm
 # Open R
 devtools::install_github("bcm-uga/TESS3_encho_sen")
 ```
-
+## Prepare Files
 ```
 conda activate pop_gen
 
