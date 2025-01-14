@@ -61,22 +61,25 @@ devtools::install_github("bcm-uga/TESS3_encho_sen")
 conda activate pop_gen
 
 python "/mnt/storage13/nbillows/Pop_Gen/master/prep_files.py" --coding_regions "/mnt/storage13/nbillows/Pf_09_24/Pf3D7_v3/Pf3D7_R.coding.regions.bed" --prefix "dummy_data.2024_10_29.filt.csq.bi.GT.miss0.4.vqslod.filt.snps" --path "/mnt/storage13/nbillows/Pop_Gen/" --metadata "dummy.tsv" --analysis "country_test" --wgs_id "wgs_id" --population "Country" --maf 0.001 --threads 8
+```
 
-python "/mnt/storage13/nbillows/Pop_Gen/master/PopGen.py" MOI --path "/mnt/storage13/nbillows/Pop_Gen/" --vcf "/mnt/storage13/nbillows/Pf_09_24/dummy/dummy_data.2024_10_29.filt.bi.GT.miss0.4.vqslod.filt.snps_coding_sorted.pop_maf_filt_0.001.vcf.gz" --metadata "dummy.tsv" --wgs_id "wgs_id" --analysis "check" --population "Country" --parallel 5
-
-### Note args for species are P_falciparum or P_vivax. For any other species, please provide a bed file using the option --bed_file- should have chr integers.
-python "/mnt/storage13/nbillows/Pop_Gen/master/PopGen.py" ADMIXTURE --path "/mnt/storage13/nbillows/Pop_Gen/" --vcf "/mnt/storage13/nbillows/Pf_09_24/dummy/dummy_data.2024_10_29.filt.bi.GT.miss0.4.vqslod.filt.snps_coding_sorted.pop_maf_filt_0.001.vcf.gz" --analysis "check" --species "P_falciparum" --parallel 5
-
-## handy if using own bed file:
-plink --vcf <vcf_file> --set-missing-var-ids @:# --keep-allele-order --const-fid --allow-extra-chr --make-bed --out <prefix>
-sed -ie 's/PvP01_//g; s/_v1//g; s/^0//g; s/API/15/g; s/MIT/16/g' <prefix>.bim
 
 ## Run ALL Steps PopGen
 ```
-
 python "/mnt/storage13/nbillows/Pop_Gen/master/PopGen.py" ALL --path "/mnt/storage13/nbillows/Pop_Gen/" --binary_matrix "/mnt/storage13/nbillows/Pf_09_24/dummy/dummy_data.2024_10_29.filt.bi.GT.miss0.4.vqslod.filt.snps_coding_sorted.pop_maf_filt_0.001.mat.bin" --analysis "checking_all"  --parallel 5 --metadata "dummy.tsv" --annotation "/mnt/storage13/nbillows/Pf_09_24/dummy/annotations_final.tsv" --product "/mnt/storage13/nbillows/Pf_09_24/Pf3D7_v3/pf_genome_product_v3.tsv" --wgs_id "wgs_id" --population "Country" --date 2024_11_07 --comparison paired --ref_index "/mnt/storage13/nbillows/Pf_09_24/Pf3D7_v3/Pfalciparum.genome.fasta.fai" --species P_falciparum --vcf "/mnt/storage13/nbillows/Pf_09_24/dummy/dummy_data.2024_10_29.filt.bi.GT.miss0.4.vqslod.filt.snps_coding_sorted.pop_maf_filt_0.001.vcf.gz"
 ```
-
+## Just MOI
+```
+python "/mnt/storage13/nbillows/Pop_Gen/master/PopGen.py" MOI --path "/mnt/storage13/nbillows/Pop_Gen/" --vcf "/mnt/storage13/nbillows/Pf_09_24/dummy/dummy_data.2024_10_29.filt.bi.GT.miss0.4.vqslod.filt.snps_coding_sorted.pop_maf_filt_0.001.vcf.gz" --metadata "dummy.tsv" --wgs_id "wgs_id" --analysis "check" --population "Country" --parallel 5
+```
+## Just Admixture
+```
+### Note args for species are P_falciparum or P_vivax. For any other species, please provide a bed file using the option --bed_file- should have chr integers.
+python "/mnt/storage13/nbillows/Pop_Gen/master/PopGen.py" ADMIXTURE --path "/mnt/storage13/nbillows/Pop_Gen/" --vcf "/mnt/storage13/nbillows/Pf_09_24/dummy/dummy_data.2024_10_29.filt.bi.GT.miss0.4.vqslod.filt.snps_coding_sorted.pop_maf_filt_0.001.vcf.gz" --analysis "check" --species "P_falciparum" --parallel 5
+## handy if using own bed file:
+plink --vcf <vcf_file> --set-missing-var-ids @:# --keep-allele-order --const-fid --allow-extra-chr --make-bed --out <prefix>
+sed -ie 's/PvP01_//g; s/_v1//g; s/^0//g; s/API/15/g; s/MIT/16/g' <prefix>.bim
+```
 ## Just Selection
 ```
 python "/mnt/storage13/nbillows/Pop_Gen/master/PopGen.py" SELECTION --path "/mnt/storage13/nbillows/Pop_Gen/" --binary_matrix "/mnt/storage13/nbillows/Pf_09_24/dummy/dummy_data.2024_10_29.filt.bi.GT.miss0.4.vqslod.filt.snps_coding_sorted.pop_maf_filt_0.001.mat.bin" --analysis "check"  --parallel 5 --metadata "dummy.tsv" --annotation "/mnt/storage13/nbillows/Pf_09_24/dummy/annotations_final.tsv" --product "/mnt/storage13/nbillows/Pf_09_24/Pf3D7_v3/pf_genome_product_v3.tsv" --wgs_id "wgs_id" --population "Country" --date 2024_11_06 --comparison paired
