@@ -94,10 +94,9 @@ python "/mnt/storage13/nbillows/Pop_Gen/master/PopGen.py" TESS3R --path "/mnt/st
 ```
 
 ## Population Statistics Analysis
-``
+```
 conda activate pop_stat
 python "/mnt/storage13/nbillows/Pop_Gen/master/PopStat.py" --path "/mnt/storage13/nbillows/Pop_Gen/" --vcf "/m
 nt/storage13/nbillows/Pf_09_24/Pfalciparum_09_24_v2/analysis_09_24_v2/Pf_dataset_Oct24_filt.csq.bi.GT.miss0.4.vqslod.filt.snps.vcf.gz" --vcf_coding "/mnt/storage13/nbillows/Pf_09_24/Pfalciparum_09_24_v2/analysis_09_24_v2/Pf_dataset_Oct24_filt.csq.bi.GT.miss0.4.vqslod.filt.snps_codingR.vcf.gz" --comparison both --population Region --make_zarr True --metadata "/mnt/storage13/nbillows/Pf_09_24/Pfalciparum_09_24_v2/analysis_09_24_v2/Pf_Nov24_metadata_complete.csv" --do_pca True --prefix Pf_Nov24 --date 25_11_24
-
 ```
 
