@@ -129,8 +129,8 @@ env_var_numeric <- as.numeric(env_mat[, 1])
 impute(project, geno_output_path, method = 'mode', K = best_K, run = best_run)
 
 # Run LFMM2
-mod <- lfmm2("PNG_0.95.lfmm_imputed.lfmm", env_var_numeric, K = best_K)
-pv <- lfmm2.test(object = mod, input.file = "PNG_0.95.lfmm_imputed.lfmm",
+mod <- lfmm2("output_0.95.lfmm_imputed.lfmm", env_var_numeric, K = best_K)
+pv <- lfmm2.test(object = mod, input.file = "output_0.95.lfmm_imputed.lfmm",
                  env = env_var_numeric, linear = FALSE, genomic.control = FALSE)
 
 # Save results
