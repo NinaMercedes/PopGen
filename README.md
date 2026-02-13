@@ -100,3 +100,8 @@ python "/mnt/storage13/nbillows/Pop_Gen/master/PopStat.py" --path "/mnt/storage1
 nt/storage13/nbillows/Pf_09_24/Pfalciparum_09_24_v2/analysis_09_24_v2/Pf_dataset_Oct24_filt.csq.bi.GT.miss0.4.vqslod.filt.snps.vcf.gz" --vcf_coding "/mnt/storage13/nbillows/Pf_09_24/Pfalciparum_09_24_v2/analysis_09_24_v2/Pf_dataset_Oct24_filt.csq.bi.GT.miss0.4.vqslod.filt.snps_codingR.vcf.gz" --comparison both --population Region --make_zarr True --metadata "/mnt/storage13/nbillows/Pf_09_24/Pfalciparum_09_24_v2/analysis_09_24_v2/Pf_Nov24_metadata_complete.csv" --do_pca True --prefix Pf_Nov24 --date 25_11_24
 ```
 
+## Example Data
+I have provided a dummy.tsv in utils. The samples listed are part of the Pf7 MalariaGen Dataset which can be found here: https://apps.malariagen.net/apps/pf7/.
+
+
+
