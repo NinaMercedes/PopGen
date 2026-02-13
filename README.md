@@ -2,7 +2,8 @@
 This repository contains a master script/ code for performing **Population Genetics Analysis** e.g. for *Plasmodium falciparum*!
 Let's start by making a repository containing all of the code, packages and software we will need for the analysis...
 
-
+## Install 
+Approx 10 minutes to install. Specific versions required are indicated.
 ```
 conda create -n pop_stat
 conda activate pop_stat
